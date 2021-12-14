@@ -1,7 +1,8 @@
-package ru.gb.makulin.myphotooftheday
+package ru.gb.makulin.myphotooftheday.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import ru.gb.makulin.myphotooftheday.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

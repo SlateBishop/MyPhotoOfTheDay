@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MyPhotoOfTheDay</string>
+    <string name="text_wiki_hint">Найти в википедии</string>
+    <string name="text_wiki_helper">Поищите в вики</string>
 </resources>
