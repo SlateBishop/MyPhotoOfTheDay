@@ -3,9 +3,7 @@ package ru.gb.makulin.myphotooftheday.view.photo
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
@@ -13,6 +11,8 @@ import ru.gb.makulin.myphotooftheday.R
 import ru.gb.makulin.myphotooftheday.databinding.FragmentPhotoMainBinding
 import ru.gb.makulin.myphotooftheday.model.PhotoOfTheDay
 import ru.gb.makulin.myphotooftheday.utils.BASE_WIKI_URL
+import ru.gb.makulin.myphotooftheday.utils.makeSnackbar
+import ru.gb.makulin.myphotooftheday.view.MainActivity
 import ru.gb.makulin.myphotooftheday.viewmodel.AppState
 import ru.gb.makulin.myphotooftheday.viewmodel.PhotoViewModel
 
@@ -53,7 +53,29 @@ class PhotoFragment : Fragment() {
         observeOnViewModel()
         getPhotoOfTheDay()
         setWikiListener()
+        setBottomAppBar()
+    }
 
+    private fun setBottomAppBar() {
+        (activity as MainActivity).setSupportActionBar(binding.bottomAppBar)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_bottom_bar, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.appBarFav -> binding.root.makeSnackbar("Избранное")       //TODO
+            R.id.appBarSettings -> binding.root.makeSnackbar("Настройки")  //TODO
+            android.R.id.home -> BottomNavigationDrawerFragment().show(
+                requireActivity()
+                    .supportFragmentManager, ""
+            )
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setWikiListener() {

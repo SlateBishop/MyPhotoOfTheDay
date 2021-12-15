@@ -8,3 +8,7 @@ const val API_DATE_NAME = "date"
 
 //wiki
 const val BASE_WIKI_URL = "https://en.wikipedia.org/wiki/"
+
+//makeSnackbar
+const val ON_FAILED_DATA_LOADING_TEXT = "Ошибка загрузки данных"
+const val SNACK_ACTION_TEXT = "Перезагрузить"
