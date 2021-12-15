@@ -1,5 +1,7 @@
 package ru.gb.makulin.myphotooftheday.view.photo
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,7 @@ import coil.load
 import ru.gb.makulin.myphotooftheday.R
 import ru.gb.makulin.myphotooftheday.databinding.FragmentPhotoMainBinding
 import ru.gb.makulin.myphotooftheday.model.PhotoOfTheDay
+import ru.gb.makulin.myphotooftheday.utils.BASE_WIKI_URL
 import ru.gb.makulin.myphotooftheday.viewmodel.AppState
 import ru.gb.makulin.myphotooftheday.viewmodel.PhotoViewModel
 
@@ -49,6 +52,18 @@ class PhotoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         observeOnViewModel()
         getPhotoOfTheDay()
+        setWikiListener()
+
+    }
+
+    private fun setWikiListener() {
+        binding.wikiTextInputLayout.setEndIconOnClickListener {
+            startActivity(
+                Intent(Intent.ACTION_VIEW).apply {   //TODO не понял почему без apply не работает..
+                    data = Uri.parse(BASE_WIKI_URL + binding.wikiEditText.text.toString())
+                }
+            )
+        }
     }
 
     private fun getPhotoOfTheDay() {
