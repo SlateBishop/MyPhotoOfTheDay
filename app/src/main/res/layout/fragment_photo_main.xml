@@ -66,4 +66,8 @@
 
     <!--    </androidx.core.widget.NestedScrollView>-->
 
+    <include
+        android:id="@+id/loading"
+        layout="@layout/loading_layout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
