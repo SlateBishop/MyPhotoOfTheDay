@@ -24,8 +24,8 @@ class RemoteDataSource {
             .create(NasaApi::class.java)
     }
 
-    fun getPhotoOfTheDay(callback: Callback<PhotoOfTheDayDTO>,date: String = "") {
-        nasaApi.getPhotoOfTheDay(BuildConfig.NASA_API_KEY, date)
+    fun getPhotoOfTheDay(callback: Callback<PhotoOfTheDayDTO>, date: String = "") {
+        nasaApi.getPhotoOfTheDay(BuildConfig.NASA_API_KEY, date).enqueue(callback)
     }
 
 

@@ -3,7 +3,7 @@ package ru.gb.makulin.myphotooftheday.utils
 import ru.gb.makulin.myphotooftheday.facade.PhotoOfTheDayDTO
 import ru.gb.makulin.myphotooftheday.model.PhotoOfTheDay
 
-fun convertPhotoOfTheDayDtoToPhotoOfTheDay(photoDTO:PhotoOfTheDayDTO):PhotoOfTheDay {
+fun convertPhotoOfTheDayDtoToPhotoOfTheDay(photoDTO: PhotoOfTheDayDTO): PhotoOfTheDay {
     return with(photoDTO) {
         PhotoOfTheDay(date, explanation, mediaType, title, url)
     }
