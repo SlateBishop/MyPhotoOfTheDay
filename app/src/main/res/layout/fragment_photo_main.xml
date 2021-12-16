@@ -40,7 +40,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageView
+            <ru.gb.makulin.myphotooftheday.utils.SquareImageView
                 android:id="@+id/photoImgView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
