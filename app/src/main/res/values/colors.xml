@@ -10,5 +10,6 @@
     <color name="ic_launcher_background">#861ACA</color>
     <color name="color_gray">#66000000</color>
     <color name="color_red">#F44336</color>
+    <color name="bottom_sheet_line">#663b4351</color>
 
 </resources>
