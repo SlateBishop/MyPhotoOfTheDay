@@ -33,15 +33,17 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.navigationView.setNavigationItemSelectedListener { menuItem ->
+        initNavigation()
+    }
 
+    private fun initNavigation() {
+        binding.navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menuNavThere -> Toast.makeText(context, "Ходить туда", Toast.LENGTH_SHORT)
-                    .show() //TODO Snackbar не сработал
+                    .show()
                 R.id.menuNavHere -> Toast.makeText(context, "Ходить сюда", Toast.LENGTH_SHORT)
                     .show()
             }
-
             true
         }
     }

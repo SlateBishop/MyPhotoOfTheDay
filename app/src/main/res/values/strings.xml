@@ -10,6 +10,10 @@
     <string name="menu_nav_two">Сюда</string>
     <string name="menu_favorite">Избранное</string>
     <string name="menu_settings">Настройки</string>
+    <string name="chip_text_dayBeforeYesterday">Позавчера</string>
+    <string name="chip_text_yesterday">Вчера</string>
+    <string name="chip_text_today">Сегодня</string>
+    <string name="bottom_sheet_choose_date_text">Выбрать дату просмотра фотографии дня</string>
 
 
 </resources>
