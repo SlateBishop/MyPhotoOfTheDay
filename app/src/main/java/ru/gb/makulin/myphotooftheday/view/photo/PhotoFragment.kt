@@ -17,6 +17,7 @@ import ru.gb.makulin.myphotooftheday.utils.MEDIA_TYPE_IMAGE
 import ru.gb.makulin.myphotooftheday.utils.makeErrSnackbar
 import ru.gb.makulin.myphotooftheday.utils.makeSnackbar
 import ru.gb.makulin.myphotooftheday.view.MainActivity
+import ru.gb.makulin.myphotooftheday.view.settings.SettingsFragment
 import ru.gb.makulin.myphotooftheday.viewmodel.AppState
 import ru.gb.makulin.myphotooftheday.viewmodel.PhotoViewModel
 import java.text.SimpleDateFormat
@@ -119,8 +120,12 @@ class PhotoFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.appBarFav -> binding.root.makeSnackbar("Избранное")       //TODO
-            R.id.appBarSettings -> binding.root.makeSnackbar("Настройки")  //TODO
+            R.id.appBarHome -> {
+                setFragment(PhotoFragment.newInstance())
+            }
+            R.id.appBarSettings -> {
+                setFragment(SettingsFragment())
+            }
             android.R.id.home -> BottomNavigationDrawerFragment().show(
                 requireActivity()
                     .supportFragmentManager, ""
@@ -129,10 +134,18 @@ class PhotoFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
+    private fun setFragment(fragment:Fragment) {
+        requireActivity().supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.mainContainer,fragment)
+            .addToBackStack("")
+            .commit()
+    }
+
     private fun setWikiListener() {
         binding.wikiTextInputLayout.setEndIconOnClickListener {
             startActivity(
-                Intent(Intent.ACTION_VIEW).apply {   //TODO не понял почему без apply не работает..
+                Intent(Intent.ACTION_VIEW).apply {
                     data = Uri.parse(BASE_WIKI_URL + binding.wikiEditText.text.toString())
                 }
             )

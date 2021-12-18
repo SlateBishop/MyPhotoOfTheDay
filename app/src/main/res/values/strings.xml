@@ -1,19 +1,36 @@
 <resources>
     <string name="app_name">MyPhotoOfTheDay</string>
 
-<!--    photo fragment-->
+    <!--    photo fragment-->
     <string name="text_wiki_hint">Найти в википедии</string>
     <string name="text_wiki_helper">Поищите в вики</string>
 
-<!--    menu-->
+    <!--    menu-->
     <string name="menu_nav_one">Туда</string>
     <string name="menu_nav_two">Сюда</string>
-    <string name="menu_favorite">Избранное</string>
+    <string name="menu_home">На главную</string>
     <string name="menu_settings">Настройки</string>
     <string name="chip_text_dayBeforeYesterday">Позавчера</string>
     <string name="chip_text_yesterday">Вчера</string>
     <string name="chip_text_today">Сегодня</string>
     <string name="bottom_sheet_choose_date_text">Выбрать дату просмотра фотографии дня</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="settings_themes_header">Themes</string>
+    <string name="settings_themes_title">Выбранная тема</string>
 
 
 </resources>

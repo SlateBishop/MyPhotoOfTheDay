@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/appBarFav"
-        android:icon="@drawable/ic_favourite_menu"
-        android:title="@string/menu_favorite"
+        android:id="@+id/appBarHome"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/menu_home"
         app:showAsAction="ifRoom" />
 
     <item
