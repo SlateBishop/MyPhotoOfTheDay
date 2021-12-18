@@ -1,13 +1,13 @@
 package ru.gb.makulin.myphotooftheday.view
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.preference.Preference
 import androidx.preference.PreferenceManager
 import ru.gb.makulin.myphotooftheday.R
 import ru.gb.makulin.myphotooftheday.view.photo.PhotoFragment
 
-class MainActivity : AppCompatActivity(), Preference.OnPreferenceChangeListener {
+class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     private val sp by lazy {
         PreferenceManager.getDefaultSharedPreferences(this)
@@ -15,12 +15,8 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceChangeListener 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        when (sp.getString("theme", "")) {
-            "MainTheme" -> setTheme(R.style.MainTheme)
-            "AlternativeTheme" -> setTheme(R.style.AlternativeTheme)
-        }
+        setTheme()
         setContentView(R.layout.activity_main)
-
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
@@ -29,8 +25,24 @@ class MainActivity : AppCompatActivity(), Preference.OnPreferenceChangeListener 
         }
     }
 
-    override fun onPreferenceChange(preference: Preference?, newValue: Any?): Boolean {
+    private fun setTheme() {
+        when (sp.getString("theme", "")) {
+            "MainTheme" -> setTheme(R.style.MainTheme)
+            "AlternativeTheme" -> setTheme(R.style.AlternativeTheme)
+        }
+    }
+
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         recreate()
-        return true
+    }
+
+    override fun onResume() {
+        super.onResume()
+        sp.registerOnSharedPreferenceChangeListener(this)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        sp.unregisterOnSharedPreferenceChangeListener(this)
     }
 }

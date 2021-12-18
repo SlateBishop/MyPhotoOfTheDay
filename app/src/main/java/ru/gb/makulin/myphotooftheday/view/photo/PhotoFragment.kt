@@ -15,7 +15,6 @@ import ru.gb.makulin.myphotooftheday.model.PhotoOfTheDay
 import ru.gb.makulin.myphotooftheday.utils.BASE_WIKI_URL
 import ru.gb.makulin.myphotooftheday.utils.MEDIA_TYPE_IMAGE
 import ru.gb.makulin.myphotooftheday.utils.makeErrSnackbar
-import ru.gb.makulin.myphotooftheday.utils.makeSnackbar
 import ru.gb.makulin.myphotooftheday.view.MainActivity
 import ru.gb.makulin.myphotooftheday.view.settings.SettingsFragment
 import ru.gb.makulin.myphotooftheday.viewmodel.AppState
@@ -134,10 +133,10 @@ class PhotoFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setFragment(fragment:Fragment) {
+    private fun setFragment(fragment: Fragment) {
         requireActivity().supportFragmentManager
             .beginTransaction()
-            .replace(R.id.mainContainer,fragment)
+            .replace(R.id.mainContainer, fragment)
             .addToBackStack("")
             .commit()
     }
