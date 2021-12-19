@@ -36,7 +36,7 @@
 
     <style name="BottomSheetStyle">
         <item name="android:background">@color/bottom_sheet_background_color</item>
-        <item name="behavior_hideable">false</item>
+        <item name="behavior_hideable">true</item>
         <item name="behavior_peekHeight">@dimen/bottom_sheet_peekHeight</item>
     </style>
 

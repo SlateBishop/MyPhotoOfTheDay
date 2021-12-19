@@ -34,6 +34,12 @@ class PhotoFragment : Fragment() {
         ViewModelProvider(this).get(PhotoViewModel::class.java)
     }
 
+    private val behavior by lazy {
+        BottomSheetBehavior.from(binding.includeBottomSheet.bottomSheetContainer)
+    }
+
+    private var isFabHide = false
+
     companion object {
         fun newInstance(): PhotoFragment {
             return PhotoFragment()
@@ -63,6 +69,7 @@ class PhotoFragment : Fragment() {
         setBottomAppBar()
         setBottomSheet()
         getPhotoOfTheDay()
+
     }
 
     private fun setChipGroupListener() {
@@ -103,13 +110,24 @@ class PhotoFragment : Fragment() {
     }
 
     private fun setBottomSheet() {
-        val behavior = BottomSheetBehavior.from(binding.includeBottomSheet.bottomSheetContainer)
         behavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
     }
 
     private fun setBottomAppBar() {
         (activity as MainActivity).setSupportActionBar(binding.bottomAppBar)
         setHasOptionsMenu(true)
+        initFab()
+    }
+
+    private fun initFab() {
+        binding.fab.setOnClickListener {
+            if (isFabHide) {
+                behavior.state = BottomSheetBehavior.STATE_EXPANDED
+            } else {
+                behavior.state = BottomSheetBehavior.STATE_HIDDEN
+            }
+            isFabHide = !isFabHide
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

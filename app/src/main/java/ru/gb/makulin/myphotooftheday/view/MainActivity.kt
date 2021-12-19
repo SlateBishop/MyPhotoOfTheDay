@@ -26,9 +26,10 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     }
 
     private fun setTheme() {
-        when (sp.getString("theme", "")) {
+        when (sp.getString("theme", "MainTheme")) {
             "MainTheme" -> setTheme(R.style.MainTheme)
             "AlternativeTheme" -> setTheme(R.style.AlternativeTheme)
+            else -> setTheme(R.style.MainTheme)
         }
     }
 

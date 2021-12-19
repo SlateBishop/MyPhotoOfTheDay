@@ -26,7 +26,7 @@ android {
     buildTypes.each {
         Properties properties = new Properties()
         properties.load(project.rootProject.file("apikey.properties").newDataInputStream())
-        def apiKey = properties.getProperty("nasa_api_key")
+        def apiKey = properties.getProperty("NASA_API_KEY")
         it.buildConfigField "String", "NASA_API_KEY", apiKey
     }
 
