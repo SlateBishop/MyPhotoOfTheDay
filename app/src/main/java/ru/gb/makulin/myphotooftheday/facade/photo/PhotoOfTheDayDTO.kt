@@ -1,4 +1,4 @@
-package ru.gb.makulin.myphotooftheday.facade
+package ru.gb.makulin.myphotooftheday.facade.photo
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

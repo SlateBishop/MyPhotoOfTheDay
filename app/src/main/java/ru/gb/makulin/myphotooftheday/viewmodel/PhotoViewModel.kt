@@ -4,10 +4,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import retrofit2.Call
 import retrofit2.Response
-import ru.gb.makulin.myphotooftheday.facade.PhotoOfTheDayDTO
-import ru.gb.makulin.myphotooftheday.facade.PhotoRepository
-import ru.gb.makulin.myphotooftheday.facade.PhotoRepositoryImpl
-import ru.gb.makulin.myphotooftheday.facade.RemoteDataSource
+import ru.gb.makulin.myphotooftheday.facade.photo.PhotoOfTheDayDTO
+import ru.gb.makulin.myphotooftheday.facade.photo.PhotoRepository
+import ru.gb.makulin.myphotooftheday.facade.photo.PhotoRepositoryImpl
+import ru.gb.makulin.myphotooftheday.facade.retrofit.RemoteDataSource
 import ru.gb.makulin.myphotooftheday.utils.convertPhotoOfTheDayDtoToPhotoOfTheDay
 
 class PhotoViewModel(

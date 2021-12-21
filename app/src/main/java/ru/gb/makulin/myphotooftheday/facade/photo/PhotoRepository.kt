@@ -1,4 +1,4 @@
-package ru.gb.makulin.myphotooftheday.facade
+package ru.gb.makulin.myphotooftheday.facade.photo
 
 import retrofit2.Callback
 

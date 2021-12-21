@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/roverNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/mars_fragment_padding"
+        android:text="@string/mars_rover_curiosity"
+        android:textSize="@dimen/mars_rover_name_text_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/solTextInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/text_sol_hint"
+        android:padding="@dimen/mars_fragment_padding"
+        app:endIconCheckable="true"
+        app:endIconDrawable="@drawable/ic_picture"
+        app:endIconMode="custom"
+        app:helperText="@string/text_sol_helper"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roverNameTextView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/solEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/marsPhotoRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/solTextInputLayout" />
+
+    <Button
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:id="@+id/marsPreviousPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Предыдущие"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/marsPhotoRecyclerView" />
+
+    <Button
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:id="@+id/marsNextPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Следующие"
+        app:layout_constraintStart_toEndOf="@+id/marsPreviousPage"
+        app:layout_constraintTop_toBottomOf="@+id/marsPhotoRecyclerView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,9 @@
     <string name="settings_themes_header">Themes</string>
     <string name="settings_themes_title">Выбранная тема</string>
 
-    <!--    -->
-
+    <!--   MarsPhotoFragment -->
+    <string name="text_sol_hint">День с момента приземления на марс</string>
+    <string name="text_sol_helper">Получите фотографии за выбранный день</string>
+    <string name="mars_rover_curiosity">Curiosity rover</string>
 
 </resources>

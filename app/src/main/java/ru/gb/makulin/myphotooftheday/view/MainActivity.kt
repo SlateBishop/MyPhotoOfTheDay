@@ -23,9 +23,10 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         binding = ActivityMainBinding.inflate(layoutInflater)
         setTheme()
         setContentView(binding.root)
-        if (savedInstanceState == null) {
-            setFragment(PhotoFragment.newInstance())
-        }
+        //FIXME временно выключаю загрузку фрагмента для отладки других фрагментов
+//        if (savedInstanceState == null) {
+//            setFragment(PhotoFragment.newInstance())
+//        }
         initNavigation()
     }
 
