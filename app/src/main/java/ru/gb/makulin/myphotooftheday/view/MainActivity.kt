@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
 import ru.gb.makulin.myphotooftheday.R
 import ru.gb.makulin.myphotooftheday.databinding.ActivityMainBinding
+import ru.gb.makulin.myphotooftheday.view.mars.MarsRoverMainFragment
 import ru.gb.makulin.myphotooftheday.view.photo.PhotoFragment
 import ru.gb.makulin.myphotooftheday.view.settings.SettingsFragment
 
@@ -39,6 +40,10 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 }
                 R.id.navSettings -> {
                     setFragment(SettingsFragment())
+                    true
+                }
+                R.id.navMarsRoverPhotos -> {
+                    setFragment(MarsRoverMainFragment.newInstance())
                     true
                 }
                 else -> false

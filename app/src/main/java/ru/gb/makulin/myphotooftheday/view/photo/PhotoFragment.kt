@@ -18,7 +18,7 @@ import ru.gb.makulin.myphotooftheday.utils.makeErrSnackbar
 import ru.gb.makulin.myphotooftheday.view.MainActivity
 import ru.gb.makulin.myphotooftheday.view.settings.SettingsFragment
 import ru.gb.makulin.myphotooftheday.viewmodel.AppState
-import ru.gb.makulin.myphotooftheday.viewmodel.PhotoViewModel
+import ru.gb.makulin.myphotooftheday.viewmodel.photo.PhotoViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -187,7 +187,7 @@ class PhotoFragment : Fragment() {
                 }
             }
             AppState.Loading -> binding.loading.progressBar.visibility = View.VISIBLE
-            is AppState.Success -> {
+            is AppState.PhotoOfTheDaySuccess -> {
                 val photo = appState.photoOfTheDay
                 setData(photo)
                 binding.loading.progressBar.visibility = View.GONE

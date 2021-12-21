@@ -4,4 +4,4 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class MarsPhotoDTO(val imgScr: String) : Parcelable
+data class MarsPhotoDTO(val imgSrc: String) : Parcelable

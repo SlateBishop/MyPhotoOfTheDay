@@ -23,6 +23,6 @@ fun convertMarsPhotosListDtoToMarsPhotosList(marsDTO: MarsPhotosListDTO): MarsPh
 
 fun convertMarsPhotoDtoToMarsPhoto(marsDTO: MarsPhotoDTO): MarsPhoto {
     return with(marsDTO) {
-        MarsPhoto(imgScr)
+        MarsPhoto(imgSrc)
     }
 }

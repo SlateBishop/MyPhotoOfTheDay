@@ -37,7 +37,7 @@ class RemoteDataSource {
         solNum: Int = 1,
         page: Int = 1
     ) {
-        nasaApi.getMarsPhotos(roverName, apiKey, solNum, page)
+        nasaApi.getMarsPhotos(roverName, apiKey, solNum, page).enqueue(callback)
     }
 
 

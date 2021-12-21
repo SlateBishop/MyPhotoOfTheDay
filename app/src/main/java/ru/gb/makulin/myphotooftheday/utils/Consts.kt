@@ -10,6 +10,11 @@ const val API_DATE_NAME = "date"
 const val API_MARS_SOL_NAME = "sol"
 const val API_MARS_PAGE_NAME = "page"
 
+//mars rovers names
+const val MARS_ROVER_CURIOSITY_NAME = "Curiosity"
+const val MARS_ROVER_OPPORTUNITY_NAME = "Opportunity"
+const val MARS_ROVER_SPIRIT_NAME = "Spirit"
+
 //wiki
 const val BASE_WIKI_URL = "https://en.wikipedia.org/wiki/"
 

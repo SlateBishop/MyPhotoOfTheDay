@@ -67,4 +67,8 @@
         app:layout_constraintStart_toEndOf="@+id/marsPreviousPage"
         app:layout_constraintTop_toBottomOf="@+id/marsPhotoRecyclerView" />
 
+    <include
+        android:id="@+id/loading"
+        layout="@layout/loading_layout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

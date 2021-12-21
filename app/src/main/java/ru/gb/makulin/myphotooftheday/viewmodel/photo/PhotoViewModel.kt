@@ -1,4 +1,4 @@
-package ru.gb.makulin.myphotooftheday.viewmodel
+package ru.gb.makulin.myphotooftheday.viewmodel.photo
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,6 +9,7 @@ import ru.gb.makulin.myphotooftheday.facade.photo.PhotoRepository
 import ru.gb.makulin.myphotooftheday.facade.photo.PhotoRepositoryImpl
 import ru.gb.makulin.myphotooftheday.facade.retrofit.RemoteDataSource
 import ru.gb.makulin.myphotooftheday.utils.convertPhotoOfTheDayDtoToPhotoOfTheDay
+import ru.gb.makulin.myphotooftheday.viewmodel.AppState
 
 class PhotoViewModel(
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData<AppState>(),
@@ -31,7 +32,7 @@ class PhotoViewModel(
                 val photoDTO = response.body()
                 photoDTO?.let {
                     liveDataToObserve.value =
-                        AppState.Success(convertPhotoOfTheDayDtoToPhotoOfTheDay(it))
+                        AppState.PhotoOfTheDaySuccess(convertPhotoOfTheDayDtoToPhotoOfTheDay(it))
                 }
             } else {
                 liveDataToObserve.value = AppState.Error(response.code().toString())

@@ -11,11 +11,6 @@ import ru.gb.makulin.myphotooftheday.model.MarsPhoto
 class MarsPhotosAdapter : RecyclerView.Adapter<MarsPhotosAdapter.MarsRoverMainFragmentHolder>() {
 
     private var photos: List<MarsPhoto> = listOf()
-    private lateinit var listener: OnItemClickListener
-
-    fun setOnItemClickListener(listener: OnItemClickListener) {
-        this.listener = listener
-    }
 
     fun setData(data: List<MarsPhoto>) {
         photos = data
@@ -47,7 +42,7 @@ class MarsPhotosAdapter : RecyclerView.Adapter<MarsPhotosAdapter.MarsRoverMainFr
 
         fun bind(photo: MarsPhoto) {
             binding.apply {
-                cardImageView.load(photo.imgUrl)
+                cardImageView.load(photo.imgSrc)
             }
         }
     }
