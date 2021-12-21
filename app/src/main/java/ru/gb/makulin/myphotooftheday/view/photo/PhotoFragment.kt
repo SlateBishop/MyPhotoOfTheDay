@@ -143,10 +143,6 @@ class PhotoFragment : Fragment() {
             R.id.appBarSettings -> {
                 setFragment(SettingsFragment())
             }
-            android.R.id.home -> BottomNavigationDrawerFragment().show(
-                requireActivity()
-                    .supportFragmentManager, ""
-            )
         }
         return super.onOptionsItemSelected(item)
     }

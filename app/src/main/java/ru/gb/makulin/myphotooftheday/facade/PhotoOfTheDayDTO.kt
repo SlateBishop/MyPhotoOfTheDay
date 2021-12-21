@@ -1,7 +1,7 @@
 package ru.gb.makulin.myphotooftheday.facade
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class PhotoOfTheDayDTO(
