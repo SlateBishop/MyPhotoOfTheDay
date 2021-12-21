@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/appBarHome"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="@string/menu_home"
-        app:showAsAction="ifRoom" />
+        android:id="@+id/navPhotoOfTheDay"
+        android:icon="@drawable/ic_nasa"
+        android:title="@string/menu_photo_of_the_day" />
 
     <item
-        android:id="@+id/appBarSettings"
+        android:id="@+id/navSettings"
         android:icon="@drawable/ic_settings_menu"
-        android:title="@string/menu_settings"
-        app:showAsAction="ifRoom" />
+        android:title="@string/menu_settings" />
+
+    <item
+        android:id="@+id/navMarsRoverPhotos"
+        android:icon="@drawable/ic_mars_rover"
+        android:title="@string/menu_mars_rover_photos" />
 
 </menu>

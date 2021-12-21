@@ -116,7 +116,7 @@ class PhotoFragment : Fragment() {
 
     private fun setBottomAppBar() {
         (activity as MainActivity).setSupportActionBar(binding.bottomAppBar)
-        setHasOptionsMenu(true) //TODO придумать или убрать функционал BottomAppBar
+//        setHasOptionsMenu(true) //TODO придумать или убрать функционал BottomAppBar
         initFab()
     }
 
@@ -141,10 +141,10 @@ class PhotoFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.appBarHome -> {
+            R.id.navPhotoOfTheDay -> {
                 setFragment(PhotoFragment.newInstance())
             }
-            R.id.appBarSettings -> {
+            R.id.navSettings -> {
                 setFragment(SettingsFragment())
             }
         }

@@ -3,9 +3,12 @@ package ru.gb.makulin.myphotooftheday.view
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
 import ru.gb.makulin.myphotooftheday.R
+import ru.gb.makulin.myphotooftheday.databinding.ActivityMainBinding
 import ru.gb.makulin.myphotooftheday.view.photo.PhotoFragment
+import ru.gb.makulin.myphotooftheday.view.settings.SettingsFragment
 
 class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -13,16 +16,41 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         PreferenceManager.getDefaultSharedPreferences(this)
     }
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setTheme()
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
         if (savedInstanceState == null) {
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.mainContainer, PhotoFragment.newInstance())
-                .commit()
+            setFragment(PhotoFragment.newInstance())
         }
+        initNavigation()
+    }
+
+    private fun initNavigation() {
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.navPhotoOfTheDay -> {
+                    setFragment(PhotoFragment.newInstance())
+                    true
+                }
+                R.id.navSettings -> {
+                    setFragment(SettingsFragment())
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun setFragment(fragment: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.mainContainer, fragment)
+            .addToBackStack("")
+            .commit()
     }
 
     private fun setTheme() {
