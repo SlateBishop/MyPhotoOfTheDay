@@ -76,6 +76,7 @@ class PhotoFragment : Fragment() {
         binding.dateChipGroup.setOnCheckedChangeListener { group, checkedId ->
             val calendar = Calendar.getInstance()
             val dateFormatter = SimpleDateFormat("yyyy-MM-dd")
+            dateFormatter.timeZone = TimeZone.getTimeZone("EST")
             group.findViewById<Chip>(checkedId)?.let {
                 when (checkedId) {
                     R.id.chipChoiceDayBeforeYesterday -> {
@@ -115,7 +116,7 @@ class PhotoFragment : Fragment() {
 
     private fun setBottomAppBar() {
         (activity as MainActivity).setSupportActionBar(binding.bottomAppBar)
-        setHasOptionsMenu(true)
+        setHasOptionsMenu(true) //TODO придумать или убрать функционал BottomAppBar
         initFab()
     }
 
@@ -132,7 +133,10 @@ class PhotoFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_bottom_bar, menu)
+        inflater.inflate(
+            R.menu.menu_bottom_navigation_view,
+            menu
+        ) //TODO придумать или убрать функционал BottomAppBar
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
