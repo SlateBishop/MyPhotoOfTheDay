@@ -8,11 +8,12 @@ import ru.gb.makulin.myphotooftheday.facade.mars.MarsPhotosListDTO
 import ru.gb.makulin.myphotooftheday.facade.mars.MarsRepository
 import ru.gb.makulin.myphotooftheday.facade.mars.MarsRepositoryImpl
 import ru.gb.makulin.myphotooftheday.facade.retrofit.RemoteDataSource
+import ru.gb.makulin.myphotooftheday.utils.MARS_ROVER_OPPORTUNITY_NAME
 import ru.gb.makulin.myphotooftheday.utils.MARS_ROVER_SPIRIT_NAME
 import ru.gb.makulin.myphotooftheday.utils.convertMarsPhotosListDtoToMarsPhotosList
 import ru.gb.makulin.myphotooftheday.viewmodel.AppState
 
-class MarsRoverSpiritViewModel(
+class MarsRoverOpportunityViewModel(
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData<AppState>(),
     private val marsRepositoryImpl: MarsRepository = MarsRepositoryImpl(RemoteDataSource())
 ) : ViewModel() {
@@ -23,7 +24,7 @@ class MarsRoverSpiritViewModel(
         liveDataToObserve.value = AppState.Loading
         marsRepositoryImpl.getMarsPhotosFromRemote(
             callback,
-            MARS_ROVER_SPIRIT_NAME,
+            MARS_ROVER_OPPORTUNITY_NAME,
             solNum,
             page
         )

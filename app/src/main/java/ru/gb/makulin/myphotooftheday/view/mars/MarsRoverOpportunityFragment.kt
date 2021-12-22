@@ -4,16 +4,17 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import ru.gb.makulin.myphotooftheday.R
+import ru.gb.makulin.myphotooftheday.viewmodel.mars.MarsRoverOpportunityViewModel
 import ru.gb.makulin.myphotooftheday.viewmodel.mars.MarsRoverSpiritViewModel
 
-class MarsRoverSpiritFragment : MarsRoverCuriosityFragment() {
+class MarsRoverOpportunityFragment : MarsRoverCuriosityFragment() {
 
-    private val viewModel: MarsRoverSpiritViewModel by lazy {
-        ViewModelProvider(this).get(MarsRoverSpiritViewModel::class.java)
+    private val viewModel: MarsRoverOpportunityViewModel by lazy {
+        ViewModelProvider(this).get(MarsRoverOpportunityViewModel::class.java)
     }
 
     companion object {
-        fun newInstance(): MarsRoverSpiritFragment = MarsRoverSpiritFragment()
+        fun newInstance(): MarsRoverOpportunityFragment = MarsRoverOpportunityFragment()
     }
 
     override fun observeOnViewModel() {
@@ -24,7 +25,7 @@ class MarsRoverSpiritFragment : MarsRoverCuriosityFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.roverNameTextView.text = resources.getString(R.string.mars_rover_spirit)
+        binding.roverNameTextView.text = resources.getString(R.string.mars_rover_opportunity)
     }
 
     override fun getMarsPhotos(solNum: Int, page: Int) {

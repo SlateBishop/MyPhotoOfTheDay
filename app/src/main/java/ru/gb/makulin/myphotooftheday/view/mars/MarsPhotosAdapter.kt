@@ -2,10 +2,8 @@ package ru.gb.makulin.myphotooftheday.view.mars
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import ru.gb.makulin.myphotooftheday.R
 import ru.gb.makulin.myphotooftheday.databinding.ItemMarsPhotosBinding
 import ru.gb.makulin.myphotooftheday.model.MarsPhoto
 
@@ -44,7 +42,7 @@ class MarsPhotosAdapter : RecyclerView.Adapter<MarsPhotosAdapter.MarsRoverMainFr
         fun bind(photo: MarsPhoto) {
             binding.apply {
                 val url = photo.imgSrc
-                cardImageView.load("https" + url.removeRange(0,4))
+                cardImageView.load("https" + url.removeRange(0, 4))
             }
         }
     }

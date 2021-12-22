@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
 import ru.gb.makulin.myphotooftheday.R
 import ru.gb.makulin.myphotooftheday.databinding.ActivityMainBinding
-import ru.gb.makulin.myphotooftheday.view.mars.MarsRoverCuriosityFragment
+import ru.gb.makulin.myphotooftheday.view.mars.MarsRoverOpportunityFragment
 import ru.gb.makulin.myphotooftheday.view.mars.MarsRoverSpiritFragment
 import ru.gb.makulin.myphotooftheday.view.photo.PhotoFragment
 import ru.gb.makulin.myphotooftheday.view.settings.SettingsFragment
@@ -25,9 +25,9 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         binding = ActivityMainBinding.inflate(layoutInflater)
         setTheme()
         setContentView(binding.root)
-        if (savedInstanceState == null) {
-            setFragment(PhotoFragment.newInstance())
-        }
+//        if (savedInstanceState == null) {
+//            setFragment(PhotoFragment.newInstance())
+//        } //FIXME
         initNavigation()
     }
 
@@ -43,8 +43,9 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                     true
                 }
                 R.id.navMarsRoverPhotos -> {
-//                    setFragment(MarsRoverSpiritFragment.newInstance()) //FIXME
-                    setFragment(MarsRoverCuriosityFragment.newInstance())
+                    setFragment(MarsRoverOpportunityFragment.newInstance()) //FIXME
+//                    setFragment(MarsRoverSpiritFragment.newInstance())
+//                    setFragment(MarsRoverCuriosityFragment.newInstance())
                     true
                 }
                 else -> false

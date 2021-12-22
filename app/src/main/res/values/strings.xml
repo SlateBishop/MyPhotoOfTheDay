@@ -22,6 +22,8 @@
     <string name="text_sol_hint">День с момента приземления на марс</string>
     <string name="text_sol_helper">Получите фотографии за выбранный день</string>
     <string name="mars_rover_curiosity">Curiosity rover</string>
+    <string name="mars_rover_spirit">Spirit rover</string>
+    <string name="mars_rover_opportunity">Opportunity rover</string>
     <string name="mars_btn_next_snack_text">Больше фотографий за данный сол нет</string>
     <string name="mars_btn_back_snack_text">Вы на первой странице</string>
 

@@ -18,23 +18,24 @@ open class MarsRoverCuriosityFragment : Fragment() {
 
     companion object {
         fun newInstance(): MarsRoverCuriosityFragment = MarsRoverCuriosityFragment()
-    protected const val maxPhotosOnPageCount = 25
+        protected const val maxPhotosOnPageCount = 25
     }
 
     protected open var _binding: FragmentMarsRoverMainBinding? = null
-    protected open  val binding: FragmentMarsRoverMainBinding
+    protected open val binding: FragmentMarsRoverMainBinding
         get() {
             return _binding!!
         }
 
-    private  val adapter = MarsPhotosAdapter()
-//    protected open  val adapter = MarsPhotosAdapter()
-    private  val viewModel: MarsRoverCuriosityViewModel by lazy {
+    protected open val adapter = MarsPhotosAdapter()
+
+    //    protected open  val adapter = MarsPhotosAdapter()
+    private val viewModel: MarsRoverCuriosityViewModel by lazy {
         ViewModelProvider(this).get(MarsRoverCuriosityViewModel::class.java)
     }
-    protected open  var page = 1
-    protected open  var photoOnPageCount = 0
-    protected open  var solNum = 1
+    protected open var page = 1
+    protected open var photoOnPageCount = 0
+    protected open var solNum = 1
 
     override fun onDestroy() {
         super.onDestroy()
@@ -59,11 +60,11 @@ open class MarsRoverCuriosityFragment : Fragment() {
         getMarsPhotos()
     }
 
-    protected open  fun initPageButtons() {
+    protected open fun initPageButtons() {
         binding.marsNextPage.setOnClickListener {
             if (photoOnPageCount == maxPhotosOnPageCount) {
                 page++
-                getMarsPhotos(solNum,page)
+                getMarsPhotos(solNum, page)
                 binding.marsPhotoRecyclerView.smoothScrollToPosition(0)
             } else {
                 binding.root.makeSnackbar(getString(R.string.mars_btn_next_snack_text))
@@ -72,7 +73,7 @@ open class MarsRoverCuriosityFragment : Fragment() {
         binding.marsPreviousPage.setOnClickListener {
             if (page > 1) {
                 page--
-                getMarsPhotos(solNum,page)
+                getMarsPhotos(solNum, page)
                 binding.marsPhotoRecyclerView.smoothScrollToPosition(0)
             } else {
                 binding.root.makeSnackbar(getString(R.string.mars_btn_back_snack_text))
@@ -80,25 +81,28 @@ open class MarsRoverCuriosityFragment : Fragment() {
         }
     }
 
-    protected open  fun setMarsSolListener() {
+    protected open fun setMarsSolListener() {
         binding.solTextInputLayout.setEndIconOnClickListener {
-            solNum = binding.solEditText.text.toString().toInt()
-            page = 1
-            getMarsPhotos(solNum)
+            val check = binding.solEditText.text.toString()
+            if (check != null && check != "") {
+                solNum = check.toInt()
+                page = 1
+                getMarsPhotos(solNum)
+            }
         }
     }
 
-    protected open  fun getMarsPhotos(solNum: Int = 1, page: Int = 1) {
+    protected open fun getMarsPhotos(solNum: Int = 1, page: Int = 1) {
         viewModel.getMarsPhotos(solNum, page)
     }
 
-    protected open  fun observeOnViewModel() {
+    protected open fun observeOnViewModel() {
         viewModel.getLiveData().observe(viewLifecycleOwner, {
             renderData(it)
         })
     }
 
-    protected open  fun renderData(appState: AppState) {
+    protected open fun renderData(appState: AppState) {
         when (appState) {
             is AppState.Error -> {
                 binding.root.makeErrSnackbar {
@@ -116,11 +120,11 @@ open class MarsRoverCuriosityFragment : Fragment() {
 
     }
 
-    protected open  fun setData(photos: MarsPhotosList) {
+    protected open fun setData(photos: MarsPhotosList) {
         adapter.setData(photos.photos)
     }
 
-    protected open  fun setAdapter() {
+    protected open fun setAdapter() {
         binding.marsPhotoRecyclerView.adapter = adapter
     }
 }
