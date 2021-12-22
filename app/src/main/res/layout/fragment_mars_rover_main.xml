@@ -24,6 +24,8 @@
         android:layout_height="wrap_content"
         android:hint="@string/text_sol_hint"
         android:padding="@dimen/mars_fragment_padding"
+        app:counterEnabled="true"
+        app:counterMaxLength="4"
         app:endIconCheckable="true"
         app:endIconDrawable="@drawable/ic_picture"
         app:endIconMode="custom"
@@ -35,7 +37,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/solEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,8 +53,8 @@
         app:layout_constraintTop_toBottomOf="@+id/solTextInputLayout" />
 
     <Button
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:id="@+id/marsPreviousPage"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Предыдущие"
@@ -59,8 +62,8 @@
         app:layout_constraintTop_toBottomOf="@+id/marsPhotoRecyclerView" />
 
     <Button
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:id="@+id/marsNextPage"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Следующие"
