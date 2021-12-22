@@ -5,7 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.material.tabs.TabLayoutMediator
 import ru.gb.makulin.myphotooftheday.databinding.FragmentMarsViewPagerBinding
+import ru.gb.makulin.myphotooftheday.utils.MARS_ROVER_CURIOSITY_NAME
+import ru.gb.makulin.myphotooftheday.utils.MARS_ROVER_OPPORTUNITY_NAME
+import ru.gb.makulin.myphotooftheday.utils.MARS_ROVER_SPIRIT_NAME
 
 class MarsViewPagerFragment : Fragment() {
 
@@ -36,10 +40,23 @@ class MarsViewPagerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setViewPagerAdapter()
+        initTabLayout()
     }
 
     private fun setViewPagerAdapter() {
         binding.viewPager.adapter = MarsPagerAdapter(requireActivity())
+    }
+
+    private fun initTabLayout() {
+        TabLayoutMediator(
+            binding.tabLayout, binding.viewPager
+        ) { tab, position ->
+            when (position) {
+                0 -> tab.text = MARS_ROVER_CURIOSITY_NAME
+                1 -> tab.text = MARS_ROVER_OPPORTUNITY_NAME
+                2 -> tab.text = MARS_ROVER_SPIRIT_NAME
+            }
+        }.attach()
     }
 
 
