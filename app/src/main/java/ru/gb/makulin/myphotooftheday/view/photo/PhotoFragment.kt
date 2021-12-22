@@ -201,6 +201,7 @@ class PhotoFragment : Fragment() {
                     }
                 } else {
                     photoImgView.load(R.drawable.img_not_found)
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
                 }
                 includeBottomSheet.bottomSheetHeaderText.text = title
                 includeBottomSheet.bottomSheetExplanationText.text = explanation
