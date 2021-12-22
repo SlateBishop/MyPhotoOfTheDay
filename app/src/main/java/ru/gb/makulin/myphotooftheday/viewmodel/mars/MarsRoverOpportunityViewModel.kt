@@ -9,7 +9,6 @@ import ru.gb.makulin.myphotooftheday.facade.mars.MarsRepository
 import ru.gb.makulin.myphotooftheday.facade.mars.MarsRepositoryImpl
 import ru.gb.makulin.myphotooftheday.facade.retrofit.RemoteDataSource
 import ru.gb.makulin.myphotooftheday.utils.MARS_ROVER_OPPORTUNITY_NAME
-import ru.gb.makulin.myphotooftheday.utils.MARS_ROVER_SPIRIT_NAME
 import ru.gb.makulin.myphotooftheday.utils.convertMarsPhotosListDtoToMarsPhotosList
 import ru.gb.makulin.myphotooftheday.viewmodel.AppState
 

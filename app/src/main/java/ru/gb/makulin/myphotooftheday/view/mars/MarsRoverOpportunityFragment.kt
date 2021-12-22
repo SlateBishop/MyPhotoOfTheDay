@@ -5,7 +5,6 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import ru.gb.makulin.myphotooftheday.R
 import ru.gb.makulin.myphotooftheday.viewmodel.mars.MarsRoverOpportunityViewModel
-import ru.gb.makulin.myphotooftheday.viewmodel.mars.MarsRoverSpiritViewModel
 
 class MarsRoverOpportunityFragment : MarsRoverCuriosityFragment() {
 
