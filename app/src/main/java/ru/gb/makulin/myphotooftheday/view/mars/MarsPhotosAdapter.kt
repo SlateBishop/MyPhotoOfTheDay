@@ -43,8 +43,9 @@ class MarsPhotosAdapter : RecyclerView.Adapter<MarsPhotosAdapter.MarsRoverMainFr
 
         fun bind(photo: MarsPhoto) {
             binding.apply {
-                cardImageView.load(photo.imgSrc)
-                cardTextView.text = photo.imgSrc
+                val url = photo.imgSrc
+                cardImageView.load("https" + url.removeRange(0,4))
+//                cardImageView.load("http://mars.jpl.nasa.gov/msl-raw-images/msss/00001/mcam/0001ML0000001000I1_DXXX.jpg")
 //                cardImageView.load("https://mars.nasa.gov/msl-raw-images/msss/00001/mcam/0001ML0000001000I1_DXXX.jpg")
             }
         }
