@@ -74,27 +74,22 @@ class PhotoFragment : Fragment() {
 
     private fun setChipGroupListener() {
         binding.dateChipGroup.setOnCheckedChangeListener { group, checkedId ->
-            val calendar = Calendar.getInstance()
-            val dateFormatter = SimpleDateFormat("yyyy-MM-dd")
-            dateFormatter.timeZone = TimeZone.getTimeZone("EST")
             group.findViewById<Chip>(checkedId)?.let {
                 when (checkedId) {
-                    R.id.chipChoiceDayBeforeYesterday -> {
-                        calendar.add(Calendar.DATE, -2)
-                        val date = dateFormatter.format(calendar.time)
-                        getPhotoOfTheDay(date)
-                    }
-                    R.id.chipChoiceYesterday -> {
-                        calendar.add(Calendar.DATE, -1)
-                        val date = dateFormatter.format(calendar.time)
-                        getPhotoOfTheDay(date)
-                    }
-                    R.id.chipChoiceToday -> {
-                        getPhotoOfTheDay()
-                    }
+                    R.id.chipChoiceDayBeforeYesterday -> getPhotoOfTheDay(getDate(-2))
+                    R.id.chipChoiceYesterday -> getPhotoOfTheDay(getDate(-1))
+                    R.id.chipChoiceToday -> getPhotoOfTheDay()
                 }
             }
         }
+    }
+
+    private fun getDate(days: Int): String {
+        val calendar = Calendar.getInstance()
+        val dateFormatter = SimpleDateFormat("yyyy-MM-dd")
+        dateFormatter.timeZone = TimeZone.getTimeZone("EST")
+        calendar.add(Calendar.DATE, days)
+        return dateFormatter.format(calendar.time)
     }
 
     private fun initCalendarView() {
