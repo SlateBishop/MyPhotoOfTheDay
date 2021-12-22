@@ -5,6 +5,7 @@ import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import ru.gb.makulin.myphotooftheday.R
 import ru.gb.makulin.myphotooftheday.databinding.ItemMarsPhotosBinding
 import ru.gb.makulin.myphotooftheday.model.MarsPhoto
 
@@ -43,6 +44,8 @@ class MarsPhotosAdapter : RecyclerView.Adapter<MarsPhotosAdapter.MarsRoverMainFr
         fun bind(photo: MarsPhoto) {
             binding.apply {
                 cardImageView.load(photo.imgSrc)
+                cardTextView.text = photo.imgSrc
+//                cardImageView.load("https://mars.nasa.gov/msl-raw-images/msss/00001/mcam/0001ML0000001000I1_DXXX.jpg")
             }
         }
     }

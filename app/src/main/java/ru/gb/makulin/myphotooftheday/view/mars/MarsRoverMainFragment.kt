@@ -69,16 +69,16 @@ class MarsRoverMainFragment : Fragment() {
             }
             AppState.Loading -> binding.loading.progressBar.visibility = View.VISIBLE
             is AppState.MarsSuccess -> {
-                val photo = appState.photos
-                setData(photo)
+                val photos = appState.photos
+                setData(photos)
                 binding.loading.progressBar.visibility = View.GONE
             }
         }
 
     }
 
-    private fun setData(photo: MarsPhotosList) {
-        adapter.setData(photo.photos)
+    private fun setData(photos: MarsPhotosList) {
+        adapter.setData(photos.photos)
     }
 
     private fun setAdapter() {

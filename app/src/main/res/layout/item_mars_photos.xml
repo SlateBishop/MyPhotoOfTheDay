@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/marsPhotosItem"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     app:cardCornerRadius="@dimen/card_corner_radius"
     app:cardElevation="@dimen/card_elevation">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/cardImageView"
-        android:layout_width="@dimen/card_width"
-        android:layout_height="@dimen/card_height"
-        android:scaleType="centerCrop" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/cardImageView"
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/cardTextView"
+            android:layout_width="@dimen/card_width"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>
