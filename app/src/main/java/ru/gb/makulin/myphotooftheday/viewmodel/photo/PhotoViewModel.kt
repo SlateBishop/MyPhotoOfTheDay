@@ -13,7 +13,7 @@ import ru.gb.makulin.myphotooftheday.viewmodel.AppState
 
 class PhotoViewModel(
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData<AppState>(),
-    private val photoRepositoryImpl: PhotoRepository = PhotoRepositoryImpl(RemoteDataSource())
+    private val photoRepositoryImpl: PhotoRepository = PhotoRepositoryImpl(RemoteDataSource)
 ) : ViewModel() {
 
     fun getLiveData() = liveDataToObserve

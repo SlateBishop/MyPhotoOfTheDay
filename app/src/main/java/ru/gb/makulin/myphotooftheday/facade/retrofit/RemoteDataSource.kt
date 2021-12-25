@@ -11,7 +11,7 @@ import ru.gb.makulin.myphotooftheday.facade.mars.MarsPhotosListDTO
 import ru.gb.makulin.myphotooftheday.facade.photo.PhotoOfTheDayDTO
 import ru.gb.makulin.myphotooftheday.utils.BASE_APOD_API_URL
 
-class RemoteDataSource {
+object RemoteDataSource {
 
     private val nasaApi by lazy {
         Retrofit.Builder()

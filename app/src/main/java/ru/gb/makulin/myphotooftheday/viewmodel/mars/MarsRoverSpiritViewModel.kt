@@ -11,7 +11,7 @@ import ru.gb.makulin.myphotooftheday.viewmodel.AppState
 
 class MarsRoverSpiritViewModel(
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData<AppState>(),
-    private val marsRepositoryImpl: MarsRepository = MarsRepositoryImpl(RemoteDataSource())
+    private val marsRepositoryImpl: MarsRepository = MarsRepositoryImpl(RemoteDataSource)
 ) : ViewModel() {
 
     fun getLiveData() = liveDataToObserve
