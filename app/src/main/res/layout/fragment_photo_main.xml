@@ -2,103 +2,184 @@
 
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_behavior=".utils.NestedScrollBehavior">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/wikiTextInputLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/text_wiki_hint"
-            android:padding="@dimen/photo_fragment_padding"
-            app:endIconCheckable="true"
-            app:endIconDrawable="@drawable/ic_wikipedia"
-            app:endIconMode="custom"
-            app:helperText="@string/text_wiki_helper"
-            app:layout_constraintBottom_toTopOf="@+id/dateChipGroup"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/wikiEditText"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/wikiTextInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/dateChipGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/chip_group_padding"
-            app:layout_constraintBottom_toTopOf="@+id/photoImgView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:singleSelection="true">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipChoiceDayBeforeYesterday"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/chip_text_dayBeforeYesterday" />
+                android:hint="@string/text_wiki_hint"
+                android:padding="@dimen/photo_fragment_padding"
+                app:endIconCheckable="true"
+                app:endIconDrawable="@drawable/ic_wikipedia"
+                app:endIconMode="custom"
+                app:helperText="@string/text_wiki_helper"
+                app:layout_constraintBottom_toTopOf="@+id/dateChipGroup"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipChoiceYesterday"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/wikiEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/dateChipGroup"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/chip_text_yesterday" />
+                android:paddingStart="@dimen/chip_group_padding"
+                app:layout_constraintBottom_toTopOf="@+id/photoImgView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/wikiTextInputLayout"
+                app:singleSelection="true">
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipChoiceToday"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipChoiceDayBeforeYesterday"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_text_dayBeforeYesterday" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipChoiceYesterday"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_text_yesterday" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipChoiceToday"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chip_text_today" />
+
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <ru.gb.makulin.myphotooftheday.utils.SquareImageView
+                android:id="@+id/photoImgView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/chip_text_today" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dateChipGroup" />
 
 
-        </com.google.android.material.chip.ChipGroup>
+            <TextView
+                android:id="@+id/photoHeaderText"
+                style="@style/BottomSheetHeaderTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/photoImgView"
+                tools:text="HH 666: Carina Dust Pillar with Jet" />
 
-        <ru.gb.makulin.myphotooftheday.utils.SquareImageView
-            android:id="@+id/photoImgView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/photoExplanationText"
+                style="@style/BottomSheetExplanationTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/photoHeaderText"
+                tools:text="To some, it may look like a beehive. In reality, the featured image from the Hubble Space Telescope captures a cosmic pillar of dust, over two-light years long, inside of which is Herbig-Haro 666 -- a young star emitting powerful jets. The structure lies within one of our galaxy's largest star forming regions, the Carina Nebula, shining in southern skies at a distance of about 7,500 light-years.  The pillar's layered outline are shaped by the winds and radiation of Carina's young, hot, massive stars, some of which are still forming inside the nebula.  A dust-penetrating view in infrared light better shows the two, narrow, energetic jets blasting outward from a still hidden infant star.   Open Science: Browse 2,600+ codes in the Astrophysics Source Code Library" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/chooseDateTextView"
+                style="@style/BottomSheetCalendarHeaderTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bottom_sheet_choose_date_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/photoExplanationText" />
+
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minDate="06/16/1995"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chooseDateTextView" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <include
         android:id="@+id/loading"
         layout="@layout/loading_layout" />
 
-    <include
-        android:id="@+id/includeBottomSheet"
-        layout="@layout/bottom_sheet_layout" />
+    <!--    <com.google.android.material.bottomappbar.BottomAppBar-->
+    <!--        android:id="@+id/bottomAppBar"-->
+    <!--        style="@style/BottomAppBarTint"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_gravity="bottom"-->
+    <!--        app:fabAlignmentMode="center" />-->
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
-        style="@style/BottomAppBarTint"
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/photoAppBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:fabAlignmentMode="center" />
+        android:layout_height="300dp"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/photoCollapsingToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/photoCollapsingImg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_picture"
+                app:layout_collapseMode="parallax" />
+
+<!--            <androidx.appcompat.widget.Toolbar-->
+<!--                android:id="@+id/photoToolbar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="?attr/actionBarSize"-->
+<!--                app:layout_collapseMode="pin" />-->
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/photoFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/color_red"
-        app:layout_anchor="@id/bottomAppBar"
+        app:layout_anchor="@id/photoAppBar"
+        app:layout_anchorGravity="bottom|center"
         app:srcCompat="@drawable/ic_plus_fab"
         app:tint="@color/white" />
 

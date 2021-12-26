@@ -34,11 +34,11 @@ class PhotoFragment : Fragment() {
         ViewModelProvider(this).get(PhotoViewModel::class.java)
     }
 
-    private val behavior by lazy {
-        BottomSheetBehavior.from(binding.includeBottomSheet.bottomSheetContainer)
-    }
+//    private val behavior by lazy {
+//        BottomSheetBehavior.from(binding.includeBottomSheet.bottomSheetContainer)
+//    }
 
-    private var isFabHide = false
+//    private var isFabHide = false
 
     companion object {
         fun newInstance(): PhotoFragment {
@@ -66,8 +66,8 @@ class PhotoFragment : Fragment() {
         setWikiListener()
         setChipGroupListener()
         initCalendarView()
-        setBottomAppBar()
-        setBottomSheet()
+//        setAppBar()
+//        setBottomSheet()
         getPhotoOfTheDay()
 
     }
@@ -94,65 +94,65 @@ class PhotoFragment : Fragment() {
 
     private fun initCalendarView() {
         val calendar = Calendar.getInstance()
-        binding.includeBottomSheet.calendarView.maxDate = calendar.timeInMillis
+        binding.calendarView.maxDate = calendar.timeInMillis
         setCalendarViewListener()
     }
 
     private fun setCalendarViewListener() {
-        binding.includeBottomSheet.calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
+        binding.calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
             val selectedDate = "$year-${month + 1}-$dayOfMonth"
             getPhotoOfTheDay(selectedDate)
         }
     }
 
-    private fun setBottomSheet() {
-        behavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
-    }
+//    private fun setBottomSheet() {
+//        behavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
+//    }
 
-    private fun setBottomAppBar() {
-        (activity as MainActivity).setSupportActionBar(binding.bottomAppBar)
+//    private fun setAppBar() {
+//        (activity as MainActivity).setSupportActionBar(binding.photoToolbar)
 //        setHasOptionsMenu(true) //TODO придумать или убрать функционал BottomAppBar
-        initFab()
-    }
+//        initFab()
+//    }
 
-    private fun initFab() {
-        binding.fab.setOnClickListener {
-            if (isFabHide) {
-                behavior.state = BottomSheetBehavior.STATE_EXPANDED
-            } else {
-                behavior.state = BottomSheetBehavior.STATE_HIDDEN
-            }
-            isFabHide = !isFabHide
-        }
-    }
+//    private fun initFab() {
+//        binding.fab.setOnClickListener {
+//            if (isFabHide) {
+//                behavior.state = BottomSheetBehavior.STATE_EXPANDED
+//            } else {
+//                behavior.state = BottomSheetBehavior.STATE_HIDDEN
+//            }
+//            isFabHide = !isFabHide
+//        }
+//    }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(
-            R.menu.menu_bottom_navigation_view,
-            menu
-        ) //TODO придумать или убрать функционал BottomAppBar
-    }
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        super.onCreateOptionsMenu(menu, inflater)
+//        inflater.inflate(
+//            R.menu.menu_bottom_navigation_view,
+//            menu
+//        ) //TODO придумать или убрать функционал BottomAppBar
+//    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.navPhotoOfTheDay -> {
-                setFragment(PhotoFragment.newInstance())
-            }
-            R.id.navSettings -> {
-                setFragment(SettingsFragment())
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.navPhotoOfTheDay -> {
+//                setFragment(PhotoFragment.newInstance())
+//            }
+//            R.id.navSettings -> {
+//                setFragment(SettingsFragment())
+//            }
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
 
-    private fun setFragment(fragment: Fragment) {
-        requireActivity().supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.mainContainer, fragment)
-            .addToBackStack("")
-            .commit()
-    }
+//    private fun setFragment(fragment: Fragment) {
+//        requireActivity().supportFragmentManager
+//            .beginTransaction()
+//            .replace(R.id.mainContainer, fragment)
+//            .addToBackStack("")
+//            .commit()
+//    }
 
     private fun setWikiListener() {
         binding.wikiTextInputLayout.setEndIconOnClickListener {
@@ -203,8 +203,8 @@ class PhotoFragment : Fragment() {
                     photoImgView.load(R.drawable.img_not_found)
                     startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
                 }
-                includeBottomSheet.bottomSheetHeaderText.text = title
-                includeBottomSheet.bottomSheetExplanationText.text = explanation
+                photoHeaderText.text = title
+                photoExplanationText.text = explanation
             }
         }
     }

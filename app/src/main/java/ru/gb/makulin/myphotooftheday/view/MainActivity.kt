@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         setTheme()
         setContentView(binding.root)
         if (savedInstanceState == null) {
-            setFragment(MarsViewPagerFragment.newInstance())
+            setFragment(PhotoFragment.newInstance())
         }
         initNavigation()
     }
