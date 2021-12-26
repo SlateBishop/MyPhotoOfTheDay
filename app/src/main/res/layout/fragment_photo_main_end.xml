@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_wikipedia"
                 app:layout_constraintBottom_toTopOf="@id/dateChipGroup"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -38,7 +38,8 @@
                 app:endIconMode="custom"
                 app:helperText="@string/text_wiki_helper"
                 app:layout_constraintBottom_toTopOf="@+id/dateChipGroup"
-                app:layout_constraintStart_toEndOf="parent">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/wikiSwiper">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/wikiEditText"
