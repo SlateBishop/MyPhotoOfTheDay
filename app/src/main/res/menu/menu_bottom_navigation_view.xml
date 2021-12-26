@@ -5,7 +5,7 @@
         android:id="@+id/navPhotoOfTheDay"
         android:icon="@drawable/ic_nasa"
         android:title="@string/menu_photo_of_the_day"
-        android:orderInCategory="1"/>
+        android:orderInCategory="0"/>
 
     <item
         android:id="@+id/navSettings"
@@ -17,6 +17,6 @@
         android:id="@+id/navMarsRoverPhotos"
         android:icon="@drawable/ic_mars_rover"
         android:title="@string/menu_mars_rover_photos"
-        android:orderInCategory="0"/>
+        android:orderInCategory="1"/>
 
 </menu>
