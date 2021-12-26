@@ -7,7 +7,6 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip
 import ru.gb.makulin.myphotooftheday.R
 import ru.gb.makulin.myphotooftheday.databinding.FragmentPhotoMainBinding
@@ -15,8 +14,6 @@ import ru.gb.makulin.myphotooftheday.model.PhotoOfTheDay
 import ru.gb.makulin.myphotooftheday.utils.BASE_WIKI_URL
 import ru.gb.makulin.myphotooftheday.utils.MEDIA_TYPE_IMAGE
 import ru.gb.makulin.myphotooftheday.utils.makeErrSnackbar
-import ru.gb.makulin.myphotooftheday.view.MainActivity
-import ru.gb.makulin.myphotooftheday.view.settings.SettingsFragment
 import ru.gb.makulin.myphotooftheday.viewmodel.AppState
 import ru.gb.makulin.myphotooftheday.viewmodel.photo.PhotoViewModel
 import java.text.SimpleDateFormat
@@ -33,12 +30,6 @@ class PhotoFragment : Fragment() {
     private val viewModel: PhotoViewModel by lazy {
         ViewModelProvider(this).get(PhotoViewModel::class.java)
     }
-
-//    private val behavior by lazy {
-//        BottomSheetBehavior.from(binding.includeBottomSheet.bottomSheetContainer)
-//    }
-
-//    private var isFabHide = false
 
     companion object {
         fun newInstance(): PhotoFragment {
@@ -66,10 +57,7 @@ class PhotoFragment : Fragment() {
         setWikiListener()
         setChipGroupListener()
         initCalendarView()
-//        setAppBar()
-//        setBottomSheet()
         getPhotoOfTheDay()
-
     }
 
     private fun setChipGroupListener() {
@@ -104,55 +92,6 @@ class PhotoFragment : Fragment() {
             getPhotoOfTheDay(selectedDate)
         }
     }
-
-//    private fun setBottomSheet() {
-//        behavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
-//    }
-
-//    private fun setAppBar() {
-//        (activity as MainActivity).setSupportActionBar(binding.photoToolbar)
-//        setHasOptionsMenu(true) //TODO придумать или убрать функционал BottomAppBar
-//        initFab()
-//    }
-
-//    private fun initFab() {
-//        binding.fab.setOnClickListener {
-//            if (isFabHide) {
-//                behavior.state = BottomSheetBehavior.STATE_EXPANDED
-//            } else {
-//                behavior.state = BottomSheetBehavior.STATE_HIDDEN
-//            }
-//            isFabHide = !isFabHide
-//        }
-//    }
-
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//        super.onCreateOptionsMenu(menu, inflater)
-//        inflater.inflate(
-//            R.menu.menu_bottom_navigation_view,
-//            menu
-//        ) //TODO придумать или убрать функционал BottomAppBar
-//    }
-
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            R.id.navPhotoOfTheDay -> {
-//                setFragment(PhotoFragment.newInstance())
-//            }
-//            R.id.navSettings -> {
-//                setFragment(SettingsFragment())
-//            }
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
-
-//    private fun setFragment(fragment: Fragment) {
-//        requireActivity().supportFragmentManager
-//            .beginTransaction()
-//            .replace(R.id.mainContainer, fragment)
-//            .addToBackStack("")
-//            .commit()
-//    }
 
     private fun setWikiListener() {
         binding.wikiTextInputLayout.setEndIconOnClickListener {

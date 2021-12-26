@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="@dimen/chip_group_padding"
-                app:layout_constraintBottom_toTopOf="@+id/photoImgView"
+                app:layout_constraintBottom_toTopOf="@+id/wikiTextInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/wikiTextInputLayout"
@@ -73,15 +73,6 @@
 
             </com.google.android.material.chip.ChipGroup>
 
-            <ru.gb.makulin.myphotooftheday.utils.SquareImageView
-                android:id="@+id/photoImgView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/dateChipGroup" />
-
-
             <TextView
                 android:id="@+id/photoHeaderText"
                 style="@style/BottomSheetHeaderTextStyle"
@@ -89,7 +80,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/photoImgView"
+                app:layout_constraintTop_toBottomOf="@+id/dateChipGroup"
                 tools:text="HH 666: Carina Dust Pillar with Jet" />
 
             <TextView
@@ -130,44 +121,28 @@
         android:id="@+id/loading"
         layout="@layout/loading_layout" />
 
-    <!--    <com.google.android.material.bottomappbar.BottomAppBar-->
-    <!--        android:id="@+id/bottomAppBar"-->
-    <!--        style="@style/BottomAppBarTint"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_gravity="bottom"-->
-    <!--        app:fabAlignmentMode="center" />-->
-
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/photoAppBar"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/photoCollapsingToolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
-                android:id="@+id/photoCollapsingImg"
+                android:id="@+id/photoImgView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_picture"
-                app:layout_collapseMode="parallax" />
-
-<!--            <androidx.appcompat.widget.Toolbar-->
-<!--                android:id="@+id/photoToolbar"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="?attr/actionBarSize"-->
-<!--                app:layout_collapseMode="pin" />-->
+                app:layout_collapseMode="parallax"
+                android:scaleType="centerCrop"/>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
