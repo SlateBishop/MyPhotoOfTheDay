@@ -11,6 +11,8 @@ import androidx.transition.Fade
 import androidx.transition.Slide
 import androidx.transition.TransitionManager
 import coil.load
+import coil.transform.CircleCropTransformation
+import coil.transform.GrayscaleTransformation
 import com.google.android.material.chip.Chip
 import ru.gb.makulin.myphotooftheday.R
 import ru.gb.makulin.myphotooftheday.databinding.FragmentPhotoMainBinding
@@ -124,7 +126,7 @@ class PhotoFragment : Fragment() {
                     getPhotoOfTheDay()
                 }
             }
-            AppState.Loading -> binding.loading.progressBar.visibility = View.VISIBLE
+            AppState.Loading -> binding.photoImgView.load(R.drawable.ic_no_photo_vector)
             is AppState.PhotoOfTheDaySuccess -> {
                 val photo = appState.photoOfTheDay
                 setData(photo)
@@ -141,8 +143,11 @@ class PhotoFragment : Fragment() {
                     photoImgView.visibility = View.INVISIBLE
                     photoImgView.load(url) {
                         lifecycle(this@PhotoFragment)
+//                        crossfade(true)
+//                        crossfade(2000)
                         error(R.drawable.img_not_found)
                         placeholder(R.drawable.ic_no_photo_vector)
+                        transformations(GrayscaleTransformation())
                     }
                     setFadeTransition(photoCollapsingToolbar)
                     photoImgView.visibility = View.VISIBLE
