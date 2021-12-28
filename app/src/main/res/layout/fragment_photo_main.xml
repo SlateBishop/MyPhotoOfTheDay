@@ -13,7 +13,7 @@
 
 
         <androidx.constraintlayout.motion.widget.MotionLayout
-
+            android:id="@+id/motionLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutDescription="@xml/fragment_photo_main_scene">

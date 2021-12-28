@@ -6,6 +6,10 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.transition.AutoTransition
+import androidx.transition.Fade
+import androidx.transition.Slide
+import androidx.transition.TransitionManager
 import coil.load
 import com.google.android.material.chip.Chip
 import ru.gb.makulin.myphotooftheday.R
@@ -132,21 +136,31 @@ class PhotoFragment : Fragment() {
     private fun setData(photo: PhotoOfTheDay) {
         binding.apply {
             with(photo) {
+
                 if (mediaType == MEDIA_TYPE_IMAGE) {
+                    photoImgView.visibility = View.INVISIBLE
                     photoImgView.load(url) {
                         lifecycle(this@PhotoFragment)
                         error(R.drawable.img_not_found)
                         placeholder(R.drawable.ic_no_photo_vector)
                     }
+                    setFadeTransition(photoCollapsingToolbar)
+                    photoImgView.visibility = View.VISIBLE
                 } else {
                     photoImgView.load(R.drawable.img_not_found)
                     startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
                 }
+
                 photoHeaderText.text = title
                 photoExplanationText.text = explanation
             }
         }
     }
 
+    private fun setFadeTransition(viewGroup:ViewGroup) {
+        val fade = Fade()
+        fade.duration = 2000
+        TransitionManager.beginDelayedTransition(viewGroup,fade)
+    }
 
 }
