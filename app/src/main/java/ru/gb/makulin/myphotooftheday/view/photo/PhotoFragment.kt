@@ -6,12 +6,9 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.transition.AutoTransition
 import androidx.transition.Fade
-import androidx.transition.Slide
 import androidx.transition.TransitionManager
 import coil.load
-import coil.transform.CircleCropTransformation
 import coil.transform.GrayscaleTransformation
 import com.google.android.material.chip.Chip
 import ru.gb.makulin.myphotooftheday.R
@@ -138,7 +135,6 @@ class PhotoFragment : Fragment() {
     private fun setData(photo: PhotoOfTheDay) {
         binding.apply {
             with(photo) {
-
                 if (mediaType == MEDIA_TYPE_IMAGE) {
                     photoImgView.visibility = View.INVISIBLE
                     photoImgView.load(url) {
@@ -153,7 +149,7 @@ class PhotoFragment : Fragment() {
                     photoImgView.visibility = View.VISIBLE
                 } else {
                     photoImgView.load(R.drawable.img_not_found)
-                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+//                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url))) //FIXME раскомментировать при сдаче ДЗ
                 }
 
                 photoHeaderText.text = title
@@ -162,10 +158,10 @@ class PhotoFragment : Fragment() {
         }
     }
 
-    private fun setFadeTransition(viewGroup:ViewGroup) {
+    private fun setFadeTransition(viewGroup: ViewGroup) {
         val fade = Fade()
         fade.duration = 2000
-        TransitionManager.beginDelayedTransition(viewGroup,fade)
+        TransitionManager.beginDelayedTransition(viewGroup, fade)
     }
 
 }

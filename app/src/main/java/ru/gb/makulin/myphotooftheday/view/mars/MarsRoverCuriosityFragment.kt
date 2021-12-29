@@ -29,7 +29,6 @@ open class MarsRoverCuriosityFragment : Fragment() {
 
     protected open val adapter = MarsPhotosAdapter()
 
-    //    protected open  val adapter = MarsPhotosAdapter()
     private val viewModel: MarsRoverCuriosityViewModel by lazy {
         ViewModelProvider(this).get(MarsRoverCuriosityViewModel::class.java)
     }
