@@ -1,5 +1,6 @@
 package ru.gb.makulin.myphotooftheday.heresy
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -40,8 +41,49 @@ class HeresyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initPathButton()
+        setViewAnimate()
 
+    }
 
+    private fun setViewAnimate() {
+        var isHide = true
+        val duration: Long = 2000
+        with(binding) {
+            heresyShowBtn.setOnClickListener {
+                ObjectAnimator.ofFloat(heresyShowBtn, "translationY", 200f)
+                    .setDuration(duration).start()
+                ObjectAnimator.ofFloat(heresyShowBtn, "rotation", 0f, 720f)
+                    .setDuration(duration).start()
+                ObjectAnimator.ofFloat(heresyHideBtn, "translationY", -200f)
+                    .setDuration(duration).start()
+                ObjectAnimator.ofFloat(heresyHideBtn, "rotation", 720f, 0f)
+                    .setDuration(duration).start()
+
+                heresyBackground.animate().alpha(0f).duration = duration
+                heresyShowBtn.animate().alpha(0f).duration = duration
+                heresyHideBtn.animate().alpha(1f).duration = duration
+                heresyShowBtn.isClickable = false
+                heresyHideBtn.isClickable = true
+
+            }
+
+            heresyHideBtn.setOnClickListener {
+                ObjectAnimator.ofFloat(heresyShowBtn, "translationY", 0f)
+                    .setDuration(duration).start()
+                ObjectAnimator.ofFloat(heresyShowBtn, "rotation", 720f, 0f)
+                    .setDuration(duration).start()
+                ObjectAnimator.ofFloat(heresyHideBtn, "translationY", 0f)
+                    .setDuration(duration).start()
+                ObjectAnimator.ofFloat(heresyHideBtn, "rotation", 0f, 720f)
+                    .setDuration(duration).start()
+
+                heresyBackground.animate().alpha(1f).duration = duration
+                heresyShowBtn.animate().alpha(1f).duration = duration
+                heresyHideBtn.animate().alpha(0f).duration = duration
+                heresyShowBtn.isClickable = true
+                heresyHideBtn.isClickable = false
+            }
+        }
     }
 
     private fun initPathButton() {
