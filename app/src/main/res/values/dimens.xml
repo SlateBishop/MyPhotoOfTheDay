@@ -17,4 +17,5 @@
     <dimen name="card_elevation">10dp</dimen>
     <dimen name="card_width">250dp</dimen>
     <dimen name="card_height">250dp</dimen>
+    <string name="header_elevation_value_to">12dp</string>
 </resources>

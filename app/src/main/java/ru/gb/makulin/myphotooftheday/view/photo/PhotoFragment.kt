@@ -61,7 +61,14 @@ class PhotoFragment : Fragment() {
         setChipGroupListener()
         initCalendarView()
         getPhotoOfTheDay()
+//        initScrollElevation()
     }
+
+//    private fun initScrollElevation() {
+//        binding.photoScrollView.setOnScrollChangeListener { _, _, _, _, _ ->
+//            binding.photoAppBar.isSelected = binding.photoScrollView.canScrollVertically(-1)
+//        }
+//    }
 
     private fun setChipGroupListener() {
         binding.dateChipGroup.setOnCheckedChangeListener { group, checkedId ->
